@@ -12,3 +12,27 @@
   opacity: 0;
   transition: opacity 300ms ease-in-out;
 }
+
+.modal-fade-enter {
+  opacity: 0;
+}
+.modal-fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.modal-fade-exit {
+  opacity: 1;
+}
+.modal-fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  display: block;
+}

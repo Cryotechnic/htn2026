@@ -9,14 +9,24 @@ export default function EventCard({
   end_time,
   speakers,
   image,
+  description,
 }) {
   const [showModal, setShowModal] = useState(false);
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const handleShowModal = (event) => {
+    setSelectedEvent(event);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedEvent(null);
+  };
 
   return (
     <>
-      <StyledProjectCard className="card my-3 shadow-sm" onClick={handleShowModal}>
+      <StyledProjectCard className="card my-3 shadow-sm" onClick={() => handleShowModal({ name, event_type, start_time, end_time, speakers, image, description })}>
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <h6 className="card-subtitle mb-2 text-muted">Type: {event_type}</h6>
@@ -30,18 +40,11 @@ export default function EventCard({
               />
             </div>
           )}
-          <p>
-            <strong>Start:</strong> {new Date(start_time).toLocaleString()}
-          </p>
-          <p>
-            <strong>End:</strong> {new Date(end_time).toLocaleString()}
-          </p>
-          <p>
-            <strong>Speakers:</strong> {speakers.join(", ")}
-          </p>
         </div>
       </StyledProjectCard>
-      <EventModal showModal={showModal} onClose={handleCloseModal} />
+      {selectedEvent && (
+        <EventModal showModal={showModal} onClose={handleCloseModal} event={selectedEvent} />
+      )}
     </>
   );
 }
