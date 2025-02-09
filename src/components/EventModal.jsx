@@ -11,6 +11,19 @@ export default function EventModal({ showModal, onClose, event }) {
     setInProp(showModal);
   }, [showModal]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        handleClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const handleClose = () => {
     setInProp(false);
     setTimeout(onClose, 300); // Match the duration of the fade-out transition
