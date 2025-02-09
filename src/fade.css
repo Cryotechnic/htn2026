@@ -36,3 +36,19 @@
   z-index: 1050;
   display: block;
 }
+
+.modal-header .close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.modal-header .close:hover {
+  opacity: 1;
+}

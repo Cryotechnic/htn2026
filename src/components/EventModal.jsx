@@ -34,10 +34,29 @@ export default function EventModal({ showModal, onClose, event }) {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
+                  padding: "1rem",
+                  borderBottom: "1px solid #dee2e6",
+                  position: "relative",
                 }}
               >
-                <h5 className="modal-title">{event.name}</h5>
-                <button type="button" className="close" onClick={handleClose}>
+                <h5 className="modal-title" style={{ margin: 0 }}>{event.name}</h5>
+                <button
+                  type="button"
+                  className="close"
+                  onClick={handleClose}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    fontSize: "1.5rem",
+                    cursor: "pointer",
+                    color: "#000",
+                    opacity: 0.5,
+                    position: "absolute",
+                    top: "50%",
+                    right: "1rem",
+                    transform: "translateY(-50%)",
+                  }}
+                >
                   <span>&times;</span>
                 </button>
               </div>
@@ -47,14 +66,6 @@ export default function EventModal({ showModal, onClose, event }) {
                 <p>End Time: {event.end_time}</p>
                 <p>Speakers: {Array.isArray(event.speakers) ? event.speakers.join(", ") : event.speakers}</p>
                 <p>Description: {event.description}</p>
-                {event.image && (
-                  <img
-                    src={event.image}
-                    alt={event.name}
-                    className="img-fluid"
-                    style={{ height: "150px", objectFit: "cover" }}
-                  />
-                )}
               </div>
             </div>
           </div>
