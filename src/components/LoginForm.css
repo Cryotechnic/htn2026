@@ -1,0 +1,49 @@
+/* src/components/LoginForm.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; /* Inherit box-sizing from html */
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ensure the root takes full viewport height */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.login-form div {
+  margin-bottom: 15px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-form .form-control {
+  width: 100%;
+}
+
+.login-form button {
+  width: 100%;
+}
