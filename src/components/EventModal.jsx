@@ -75,10 +75,9 @@ export default function EventModal({ showModal, onClose, event }) {
               </div>
               <div className="modal-body">
                 {event.image && <img src={event.image} alt={event.name} />}
-                <p>Type: {event.event_type}</p>
                 <p>Start Time: {event.start_time}</p>
                 <p>End Time: {event.end_time}</p>
-                <p>Speakers: {Array.isArray(event.speakers) ? event.speakers.join(", ") : event.speakers}</p>
+                <p>Speakers: {Array.isArray(event.speakers) ? event.speakers.map(speaker => speaker.name).join(", ") : event.speakers}</p>
                 <p>Description: {event.description}</p>
               </div>
             </div>
