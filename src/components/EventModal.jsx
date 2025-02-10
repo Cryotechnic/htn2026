@@ -6,6 +6,7 @@ import "../fade.css";
 export default function EventModal({ showModal, onClose, event }) {
   const [inProp, setInProp] = useState(showModal);
   const nodeRef = useRef(null);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     setInProp(showModal);
@@ -18,9 +19,17 @@ export default function EventModal({ showModal, onClose, event }) {
       }
     };
 
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        handleClose();
+      }
+    };
+
     document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -49,7 +58,7 @@ export default function EventModal({ showModal, onClose, event }) {
     >
       <StyledEventModal ref={nodeRef}>
         <div className="modal d-block" tabIndex="-1" role="dialog">
-          <div className="modal-dialog" role="document">
+          <div className="modal-dialog" role="document" ref={modalRef}>
             <div className="modal-content">
               <div
                 className="modal-header"
