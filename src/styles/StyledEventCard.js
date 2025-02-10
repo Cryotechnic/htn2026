@@ -8,7 +8,7 @@ export const StyledProjectCard = styled.div`
     flex-direction: column;
     justify-content: space-between; /* Ensure content is spaced evenly */
     align-items: center; /* Center content horizontally */
-    text-align: center; /* Center text */
+    text-align: center;
     
     .image-container {
         display: flex;
@@ -29,11 +29,12 @@ export const StyledProjectCard = styled.div`
 `;
 
 export const StyledEventModal = styled.div`
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Dimming effect */
     z-index: 1050; /* Ensures modal is on top of other content */
     display: flex; /* Flex to center content */
     justify-content: center;
@@ -42,7 +43,10 @@ export const StyledEventModal = styled.div`
     .modal-dialog {
       max-width: 500px; /* Optional: Define a maximum width for the modal */
       width: 500px; /* Ensure it takes up the full available width within max-width */
-      height: 600px; /* Set a fixed height for the modal */
+      height: auto; /* Adjust height as needed */
+      background: white; /* Ensure modal content has a background */
+      border-radius: 8px; /* Optional: Add border radius */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
     }
 
     .modal-body {
@@ -50,6 +54,7 @@ export const StyledEventModal = styled.div`
       flex-direction: column;
       align-items: center;
       text-align: center;
+      padding: 1rem; /* Add padding to the modal body */
     }
 
     .modal-body img {
