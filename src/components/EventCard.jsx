@@ -36,6 +36,7 @@ export default function EventCard({
                 src={image}
                 alt={name}
                 className="img-fluid mb-3"
+                style={{ marginTop: "2rem" }}
               />
             </div>
           )}
