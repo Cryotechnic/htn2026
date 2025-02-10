@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyledProjectCard } from "../styles/StyledEventCard";
 import EventModal from "./EventModal";
+import "./EventCard.css";
 
 export default function EventCard({
   name,
@@ -24,12 +25,25 @@ export default function EventCard({
     setSelectedEvent(null);
   };
 
+  const getPillClass = (eventType) => {
+    switch (eventType.toLowerCase()) {
+      case "workshop":
+        return "pill pill-workshop";
+      case "talk":
+        return "pill pill-talk";
+      case "networking":
+        return "pill pill-networking";
+      default:
+        return "pill pill-other";
+    }
+  };
+
   return (
     <>
       <StyledProjectCard className="card my-3 shadow-sm" onClick={() => handleShowModal({ name, event_type, start_time, end_time, speakers, image, description })}>
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">Type: {event_type}</h6>
+          <h6 className={`card-subtitle mb-2 ${getPillClass(event_type)}`}>Type: {event_type}</h6>
           {image && (
             <div className="image-container">
               <img
