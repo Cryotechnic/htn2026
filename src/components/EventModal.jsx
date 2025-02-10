@@ -74,6 +74,7 @@ export default function EventModal({ showModal, onClose, event }) {
                 </button>
               </div>
               <div className="modal-body">
+                {event.image && <img src={event.image} alt={event.name} />}
                 <p>Type: {event.event_type}</p>
                 <p>Start Time: {event.start_time}</p>
                 <p>End Time: {event.end_time}</p>

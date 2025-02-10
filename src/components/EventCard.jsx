@@ -31,12 +31,11 @@ export default function EventCard({
           <h5 className="card-title">{name}</h5>
           <h6 className="card-subtitle mb-2 text-muted">Type: {event_type}</h6>
           {image && (
-            <div className="text-center" style={{ height: "150px", width: "225px" }}>
+            <div className="image-container">
               <img
                 src={image}
                 alt={name}
                 className="img-fluid mb-3"
-                style={{ height: "150px", objectFit: "cover" }}
               />
             </div>
           )}
