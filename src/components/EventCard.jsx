@@ -40,22 +40,24 @@ export default function EventCard({
 
   return (
     <>
-      <StyledProjectCard className="card my-3 shadow-sm" onClick={() => handleShowModal({ name, event_type, start_time, end_time, speakers, image, description })}>
-        <div className="card-body">
-          <h5 className="card-title">{name}</h5>
-          <h6 className={`card-subtitle mb-2 ${getPillClass(event_type)}`}>Type: {event_type}</h6>
-          {image && (
-            <div className="image-container">
-              <img
-                src={image}
-                alt={name}
-                className="img-fluid mb-3"
-                style={{ marginTop: "2rem" }}
-              />
-            </div>
-          )}
-        </div>
-      </StyledProjectCard>
+      <div className="card-container">
+        <StyledProjectCard className="card my-3 shadow-sm" onClick={() => handleShowModal({ name, event_type, start_time, end_time, speakers, image, description })}>
+          <div className="card-body">
+            <h5 className="card-title">{name}</h5>
+            <h6 className={`card-subtitle mb-2 ${getPillClass(event_type)}`}>Type: {event_type}</h6>
+            {image && (
+              <div className="image-container">
+                <img
+                  src={image}
+                  alt={name}
+                  className="img-fluid mb-3"
+                  style={{ marginTop: "2rem" }}
+                />
+              </div>
+            )}
+          </div>
+        </StyledProjectCard>
+      </div>
       {selectedEvent && (
         <EventModal showModal={showModal} onClose={handleCloseModal} event={selectedEvent} />
       )}

@@ -22,3 +22,11 @@
   .pill-other {
     background-color: #ff008c; /* Gray */
   }
+
+.card-container {
+  height: 100%; /* Ensure the container takes up the full height */
+  min-height: 300px; /* Set a minimum height to accommodate the card */
+  display: flex;
+  justify-content: center; /* Center the card horizontally */
+  align-items: center; /* Center the card vertically */
+}

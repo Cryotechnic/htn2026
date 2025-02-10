@@ -79,7 +79,7 @@ export default function Home({ isAuthenticated }) {
       {Object.entries(groupedEvents).map(([date, events]) => (
         <div key={date} className="mb-4">
           <h2 className="text-primary">{date}</h2>
-          <div className="d-flex gap-2 horizontal-scroll py-3">
+          <div className="d-flex gap-2 horizontal-scroll py-4">
             {events.map((event) => (
               <div key={event.id}>
                 <EventCard {...event} image={imageMap[event.id]} />
