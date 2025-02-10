@@ -29,6 +29,16 @@ export default function EventModal({ showModal, onClose, event }) {
     setTimeout(onClose, 300); // Match the duration of the fade-out transition
   };
 
+  const formatDate = (timestamp) => {
+    return new Date(timestamp).toLocaleString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
   return (
     <CSSTransition
       in={inProp}
@@ -75,8 +85,8 @@ export default function EventModal({ showModal, onClose, event }) {
               </div>
               <div className="modal-body">
                 {event.image && <img src={event.image} alt={event.name} />}
-                <p>Start Time: {event.start_time}</p>
-                <p>End Time: {event.end_time}</p>
+                <p>Start Time: {formatDate(event.start_time)}</p>
+                <p>End Time: {formatDate(event.end_time)}</p>
                 <p>Speakers: {Array.isArray(event.speakers) ? event.speakers.map(speaker => speaker.name).join(", ") : event.speakers}</p>
                 <p>Description: {event.description}</p>
               </div>
